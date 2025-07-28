@@ -22,7 +22,11 @@ default:1
 #cf711f
 #45260a
 -accents:
--gray:#555
+
+-gray:
+#767676 (lighter grey allowed on #fff)
+#555
+#333
 
 
 --05 SHADOWS
@@ -192,6 +196,10 @@ GENERAL REUSABLE COMPONENTS
 
 .grid--4-cols {
   grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .list {
