@@ -129,6 +129,7 @@ Below 944px (Landscape Tablets)
 
   .btn-mobile-nav {
     display: block;
+    z-index: 9999;
   }
 
   .main-nav {
