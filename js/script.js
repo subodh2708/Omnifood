@@ -1,8 +1,6 @@
 const myName = "subodh";
-console.log(myName);
 
 const h1 = document.querySelector(".heading-primary");
-console.log(h1);
 
 // h1.addEventListener("click", function () {
 //   h1.textContent = "Subodh Singh";
@@ -30,12 +28,11 @@ btnNav.addEventListener("click", function () {
 //Smooth scrolling animation
 
 const allLinks = document.querySelectorAll("a:link");
-console.log(allLinks);
+
 allLinks.forEach(function (link) {
   link.addEventListener("click", function (e) {
     e.preventDefault();
     const href = link.getAttribute("href");
-    console.log(href);
 
     // Scroll to top
     if (href === "#") window.scrollTo({ top: 0, behavior: "smooth" });
@@ -52,6 +49,33 @@ allLinks.forEach(function (link) {
       headerEl.classList.toggle("nav-open");
   });
 });
+
+///////////////////////////////
+//Sticky Navigation
+
+const sectionHeroEl = document.querySelector(".section-hero");
+
+const observer = new IntersectionObserver(
+  function (entries) {
+    const ent = entries[0];
+    if (!ent.isIntersecting) {
+      document.body.classList.add("sticky");
+    }
+
+    if (ent.isIntersecting) {
+      document.body.classList.remove("sticky");
+    }
+  },
+
+  {
+    //in the viewport
+    root: null,
+    threshold: 0,
+    rootMargin: "-80px",
+  }
+);
+
+observer.observe(sectionHeroEl);
 
 ///////////////////////////////////////////////////////////
 // Fixing flexbox gap property missing in some Safari versions
